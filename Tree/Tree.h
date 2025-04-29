@@ -138,4 +138,37 @@ public:
 	{
 		this->root = removeRec(value, this->root);
 	}
+	int sizeRec(node<TYPE>* current)
+	{
+		if (current == nullptr)
+			return 0;
+		else
+			return 1 + sizeRc(current->left) + sizeRec(current->right);
+	}
+	int size()
+	{
+		return sizeRec(this->root);
+	}
+	TYPE minRec(node<TYPE>* current)
+	{
+		if (current->left == nullptr)
+			return current->data;
+		else
+			return minRec(current->left);
+	}
+	TYPE min()
+	{
+		return minRec(this->root);
+	}
+	TYPE maxRec(node<TYPE>* current)
+	{
+		if (current->right == nullptr)
+			return current->data;
+		else
+			return maxRec(current->right);
+	}
+	TYPE man()
+	{
+		return maxRec(this->root);
+	}
 };
